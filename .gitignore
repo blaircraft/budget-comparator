@@ -35,3 +35,6 @@ coverage
 
 # Claude Code personal settings (launch.json is shared)
 .claude/settings.local.json
+
+# Local working notes
+HANDOFF.md
