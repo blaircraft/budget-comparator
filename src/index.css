@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+  /* Chart series colours (validated categorical slots 1 & 2) */
+  --series-a: #2a78d6;
+  --series-b: #eb6834;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
