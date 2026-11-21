@@ -2,6 +2,7 @@ import { Button, Card, Chip, Label, Slider } from '@heroui/react'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBudgets } from '../budgetStore.jsx'
+import { higherIsBetter } from '../categories.js'
 import { AccumulatedDifferenceChart, CategoryChart, SERIES_COLORS, TotalsChart } from '../components/charts.jsx'
 import { formatMoney, formatPercentChange, formatSignedMoney } from '../format.js'
 
@@ -182,7 +183,7 @@ export default function Dashboard() {
             ) : (
               <ul className="flex flex-col divide-y divide-separator">
                 {biggestChanges.map((c) => {
-                  const good = c.type === 'income' ? c.diff > 0 : c.diff < 0
+                  const good = higherIsBetter(c) ? c.diff > 0 : c.diff < 0
                   return (
                     <li key={c.id} className="flex items-center gap-2 py-2 text-sm">
                       <span className="truncate">{c.name}</span>

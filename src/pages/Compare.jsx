@@ -1,5 +1,6 @@
 import { Card, Table } from '@heroui/react'
 import { useBudgets } from '../budgetStore.jsx'
+import { higherIsBetter } from '../categories.js'
 import { SERIES_COLORS } from '../components/charts.jsx'
 import { formatMoney, formatPercentChange, formatSignedMoney } from '../format.js'
 
@@ -29,7 +30,7 @@ function buildRows(categories, totals, factor) {
         label: c.name,
         a: c.amounts.a * factor,
         b: c.amounts.b * factor,
-        higherIsBetter: type === 'income',
+        higherIsBetter: higherIsBetter(c),
       })
     }
     rows.push({
